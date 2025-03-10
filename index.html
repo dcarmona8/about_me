@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bienvenido a mi sitio personal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -32,18 +33,85 @@
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>¡Hola! Soy David Sánchez Carmona</h1>
-        <p>
-            Soy un DevOps que trabaja en Kubernetes. Me apasiona construir infraestructuras escalables y eficientes, y automatizar procesos para mejorar la entrega continua.
-        </p>
-        <p>
-            También disfruto del desarrollo de software, especialmente con tecnologías como Spring Boot, React, Java, Python, Big Data e Inteligencia Artificial.
-        </p>
-        <p>
-            Explora más sobre mí en la sección <a href="/about_me/">Acerca de mí</a>.
-        </p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a mi sitio personal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilos adicionales si es necesario */
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <div class="container mx-auto p-8">
+        <!-- Encabezado -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold text-blue-600">¡Hola! Soy [Tu Nombre]</h1>
+            <p class="text-lg text-gray-600 mt-2">DevOps Kubernetes on-premise, Azure y AWS| Apasionado por el desarrollo en Spring Boot, React, Java, Python, Big Data e IA</p>
+        </header>
+
+        <!-- Pestañas -->
+        <div class="flex justify-center space-x-4 mb-8">
+            <button onclick="showTab('about')" class="tab-button px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Sobre mí</button>
+            <button onclick="showTab('profile')" class="tab-button px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Perfil Profesional</button>
+            <button onclick="showTab('skills')" class="tab-button px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Tech Stack & Habilidades Técnicas</button>
+        </div>
+
+        <!-- Contenido de las pestañas -->
+        <div id="about" class="tab-content active">
+            <h2 class="text-2xl font-semibold text-blue-600 mb-4">Sobre mí</h2>
+            <p class="text-gray-700">
+                Soy un especialista en DevOps con un enfoque en Kubernetes. Me apasiona construir infraestructuras escalables y eficientes, y automatizar procesos para mejorar la entrega continua.
+            </p>
+        </div>
+
+        <div id="profile" class="tab-content">
+            <h2 class="text-2xl font-semibold text-blue-600 mb-4">Perfil Profesional</h2>
+            <p class="text-gray-700">
+                Con más de X años de experiencia en DevOps, he trabajado en la implementación de pipelines de CI/CD, la gestión de clústeres de Kubernetes y la optimización de infraestructuras en la nube.
+            </p>
+        </div>
+
+        <div id="skills" class="tab-content">
+            <h2 class="text-2xl font-semibold text-blue-600 mb-4">Tech Stack & Habilidades Técnicas</h2>
+            <ul class="list-disc list-inside text-gray-700">
+                <li>Kubernetes y Docker</li>
+                <li>Spring Boot y Java</li>
+                <li>React y desarrollo frontend</li>
+                <li>Python para automatización y análisis de datos</li>
+                <li>Big Data con Apache Spark</li>
+                <li>Inteligencia Artificial y Machine Learning</li>
+            </ul>
+        </div>
     </div>
+
+    <!-- Script para manejar las pestañas -->
+    <script>
+        function showTab(tabId) {
+            // Oculta todos los contenidos de las pestañas
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Muestra el contenido de la pestaña seleccionada
+            document.getElementById(tabId).classList.add('active');
+
+            // Resalta el botón activo (opcional)
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('bg-blue-600');
+                button.classList.add('bg-blue-500');
+            });
+            event.target.classList.remove('bg-blue-500');
+            event.target.classList.add('bg-blue-600');
+        }
+    </script>
 </body>
 </html>
